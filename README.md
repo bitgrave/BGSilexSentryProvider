@@ -1,6 +1,6 @@
-# Silex Sentry Provider
+# Just Another Silex Sentry Provider
 
-[![Build Status](https://travis-ci.org/moriony/silex-sentry-provider.png?branch=master)](https://travis-ci.org/moriony/silex-sentry-provider) [![Coverage Status](https://coveralls.io/repos/moriony/silex-sentry-provider/badge.png)](https://coveralls.io/r/moriony/silex-sentry-provider) [![Dependency Status](https://www.versioneye.com/user/projects/51bf5dd3f721e5000200104f/badge.png)](https://www.versioneye.com/user/projects/51bf5dd3f721e5000200104f)
+based on Vitaliy Chesnokov's [Silex Sentry Provider](https://github.com/moriony/silex-sentry-provider)
 
 [Sentry client](https://github.com/getsentry/raven-php) service provider for the [Silex](http://silex.sensiolabs.org/) framwork.
 
@@ -10,7 +10,7 @@ Add in your ```composer.json``` the require entry for this library.
 ```json
 {
     "require": {
-        "moriony/silex-sentry-provider": "1.0.*"
+        "bitgrave/silex-sentry-provider": "1.0.0"
     }
 }
 ```
@@ -22,7 +22,7 @@ If you don't need development libraries, use ```composer install --no-dev``` or 
 
 ### Service registration
 ```php
-$app->register(new Moriony\Silex\Provider\SentryServiceProvider, array(
+$app->register(new BG\Silex\Provider\SentryServiceProvider, array(
     'sentry.options' => array(
         'dsn' => 'http://public:secret@example.com/1',
         // ... and other sentry options
