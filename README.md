@@ -10,7 +10,7 @@ Add in your ```composer.json``` the require entry for this library.
 ```json
 {
     "require": {
-        "bitgrave/silex-sentry-provider": "1.0.0"
+        "bitgrave/silex-sentry-provider": "1.0.5"
     }
 }
 ```
