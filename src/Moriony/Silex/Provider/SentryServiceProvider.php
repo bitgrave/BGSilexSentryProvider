@@ -1,5 +1,5 @@
 <?php
-namespace Moriony\Silex\Provider;
+namespace BG\Silex\Provider;
 
 use Silex\Application;
 use Silex\ServiceProviderInterface;

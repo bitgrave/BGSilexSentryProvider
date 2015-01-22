@@ -1,8 +1,7 @@
 # Just Another Silex Sentry Provider
 
-based on Vitaliy Chesnokov's [Silex Sentry Provider](https://github.com/moriony/silex-sentry-provider)
-
-[Sentry client](https://github.com/getsentry/raven-php) service provider for the [Silex](http://silex.sensiolabs.org/) framwork.
+[Sentry client](https://github.com/getsentry/raven-php) service provider for the [Silex](http://silex.sensiolabs.org/) framwork,
+based on Vitaliy Chesnokov's [Silex Sentry Provider](https://github.com/moriony/silex-sentry-provider).
 
 ## Install via composer
 

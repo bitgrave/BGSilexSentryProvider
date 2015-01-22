@@ -1,8 +1,8 @@
 <?php
-namespace Moriony\Silex\Provider;
+namespace BG\Silex\Provider;
 
 use Silex\Application;
-use Moriony\Silex\Provider\SentryServiceProvider;
+use BG\Silex\Provider\SentryServiceProvider;
 
 class SentryServiceProviderTest extends \PHPUnit_Framework_TestCase
 {
