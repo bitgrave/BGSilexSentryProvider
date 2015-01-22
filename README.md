@@ -21,12 +21,50 @@ If you don't need development libraries, use ```composer install --no-dev``` or 
 
 ### Service registration
 ```php
-$app->register(new BG\Silex\Provider\SentryServiceProvider, array(
-    'sentry.options' => array(
-        'dsn' => 'http://public:secret@example.com/1',
-        // ... and other sentry options
+
+// multiple provider configuration
+$sentryProviderOptions = array(
+    'provider' => array(
+        'sentry_1' => array(
+            'client' => true,
+            'error_handler' => false,
+            'options' => array(
+                'dsn' => 'http://public:secret@example.com/1',
+                'curl_method' => 'exec'
+                // ... and other sentry options
+            )
+        ),
+        'sentry_2' => array(
+            'client' => true,
+            'error_handler' => false,
+            'options' => array(
+                'dsn' => 'http://public:secret@example.com/2',
+                'curl_method' => 'exec'
+                // ... and other sentry options
+            )
+        ),
+        'sentry_3' => array(
+            'client' => true,
+            'error_handler' => false,
+            'options' => array(
+                'dsn' => 'http://public:secret@example.com/3',
+                'curl_method' => 'exec'
+                // ... and other sentry options
+            )
+        ),
+        'sentry_4' => array(
+            'client' => true,
+            'error_handler' => true,
+            'options' => array(
+                'dsn' => 'http://public:secret@example.com/4',
+                'curl_method' => 'async'
+                // ... and other sentry options
+            )
+        )
     )
-));
+);
+
+$app->register(new BG\Silex\Provider\SentryServiceProvider, $sentryProviderOptions);
 ```
 
 Here you can find [other sentry options](https://github.com/getsentry/raven-php#configuration).
@@ -35,7 +73,7 @@ Here you can find [other sentry options](https://github.com/getsentry/raven-php#
 ```php
 $app->error(function (\Exception $e, $code) use($app) {
     // ...
-    $client = $app['sentry'];
+    $client = $app['sentry_1'];
     $client->captureException($e);
     // ...
 });
@@ -45,7 +83,7 @@ $app->error(function (\Exception $e, $code) use($app) {
 Yoc can install error handlers and shutdown function to catch fatal errors
 ```php
 // ...
-$errorHandler = $app['sentry.error_handler'];
+$errorHandler = $app['sentry_1.error_handler'];
 $errorHandler->registerExceptionHandler();
 $errorHandler->registerErrorHandler();
 $errorHandler->registerShutdownFunction();
